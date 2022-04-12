@@ -81,15 +81,15 @@
 <!--                </a>-->
 <!--              </span>-->
               <!-- Code Link. -->
-<!--              <span class="link-block">-->
-<!--                <a href="https://github.com/computational-imaging/lsvpe"-->
-<!--                   class="external-link button is-normal is-rounded is-dark">-->
-<!--                  <span class="icon">-->
-<!--                      <i class="fab fa-github"></i>-->
-<!--                  </span>-->
-<!--                  <span>Code</span>-->
-<!--                  </a>-->
-<!--              </span>-->
+              <span class="link-block">
+                <a href="https://github.com/computational-imaging/lsvpe"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
             </div>
 
           </div>
@@ -126,7 +126,7 @@
               <p>
                 When the captures are reconstructed, L-SVPE is able to recover high frequency detail while deblurring.
               </p>
-              <video id="recon" controls height="100%">
+              <video id="recon" autoplay controls muted loop height="100%">
                 <source src="https://user-images.githubusercontent.com/21781041/163015490-cfbe1dde-6d4f-4162-80bc-eba567a9e271.mov"
                         type="video/mp4">
               </video>
@@ -189,7 +189,10 @@
         <div class="content has-text-justified">
           <p>
             We compare our method, L-SVPE, against other top performing baselines, including
-            those that use different interpolation methods.
+            those that use different interpolation methods. Burst Average is the average of all frames, and
+            Short uses a short global exposure. Quad Scatter and Quad Bilinear use the same quad sensor
+            design and scatter or bilinear interpolation. Full uses a full stack of a short, medium, and long
+            exposure.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
@@ -203,13 +206,49 @@
 </section>
 
 
+<!-- Concurrent Work. -->
+<div class="columns is-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Related Links</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        If this work interested you, feel free to check out the following related works!
+      </p>
+      <p>
+        <a href="https://www.computationalimaging.org/publications/neural-sensors/">Neural Sensors</a>
+        uses learned coded exposures for HDR and video compressive imaging.
+      </p>
+      <p>
+        <a href="https://www.computationalimaging.org/publications/mantissacam/">MantissaCam</a> uses
+        irradiance encoding to perform single snapshot HDR imaging.
+      </p>
+      <p>
+        <a href="https://www.computationalimaging.org/publications/tmca/">Time Multiplexed Coded Apertures</a>
+        demonstrate the use of sub-exposures for compressive light field imaging and hyperspectral imaging.
+      </p>
+      <p>
+        More examples of end-to-end designed computational imaging include
+        <a href="https://www.computationalimaging.org/publications/deepopticsdfd/">Depth from Defocus
+        with Learned Optics</a> and <a href="https://www.computationalimaging.org/publications/deep-optics-hdr/">
+        Deep Optics for Single-Shot HDR Imaging</a>.
+      </p>
+    </div>
+  </div>
+</div>
+<!--/ Concurrent Work. -->
+
+</div>
+</section>
+
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{nguyen2022learning,
   author    = {Nguyen, Cindy M. and Martel, Julien N.P. and Wetzstein, Gordon},
   title     = {Learning Spatially Varying Pixel Exposures},
-  journal   = {arxiv},
+  journal   = {arXiv},
   year      = {2022},
 }</code></pre>
   </div>
