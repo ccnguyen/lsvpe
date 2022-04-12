@@ -102,7 +102,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="static/images/pipeline_boxes.pdf">
+      <img src="static/images/pipeline.png">
       <h2 class="subtitle has-text-centered">
         Illustration of our end-to-end pipeline, which includes a capture, interpolation, and reconstruction step.
         The loss is backpropagated to the individual pixel exposures and weights of the decoding network.
@@ -170,11 +170,10 @@
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+              When the captures are reconstructed, L-SVPE is able to show the clearest detail.
             </p>
             <video id="recon" controls height="100%">
-              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/matting.mp4"
+              <source src="https://user-images.githubusercontent.com/21781041/163015490-cfbe1dde-6d4f-4162-80bc-eba567a9e271.mov"
                       type="video/mp4">
             </video>
           </div>
@@ -195,7 +194,7 @@
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
-         <img src="static/images/grid_main.pdf">
+         <img src="static/images/grid.png">
         </div>
         <br/>
       </div>
