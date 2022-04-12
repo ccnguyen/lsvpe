@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Leveraging learned spatially varying pixel exposures for motion deblurring and denoising in a single snapshot.">
+  <meta name="keywords" content="L-SVPE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning Spatially Varying Pixel Exposures for Motion Deblurring</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+<!--  <link rel="icon" href="./static/images/favicon.svg">-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Learning Spatially Varying Pixel Exposures</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ccnguyen.github.io">Cindy M. Nguyen</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://twitter.com/jnpmartel">Julien N.P. Martel</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://stanford.edu/~gordonwz/">Gordon Wetzstein</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Stanford University,</span>
+            <span class="author-block"><sup>2</sup>Perceptive Sensing AI</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://www.computationalimaging.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://www.computationalimaging.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+<!--              &lt;!&ndash; Video Link. &ndash;&gt;-->
+<!--              <span class="link-block">-->
+<!--                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-youtube"></i>-->
+<!--                  </span>-->
+<!--                  <span>Video</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <!-- Code Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/computational-imaging/lsvpe"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-github"></i>-->
+<!--                  </span>-->
+<!--                  <span>Code</span>-->
+<!--                  </a>-->
+<!--              </span>-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/pipeline_boxes.pdf">
+      <h2 class="subtitle has-text-centered">
+        Illustration of our end-to-end pipeline, which includes a capture, interpolation, and reconstruction step.
+        The loss is backpropagated to the individual pixel exposures and weights of the decoding network.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Computationally removing the motion blur introduced by camera shake
+            or object motion in a captured image remains a challenging task in computational photography.
+          </p>
+          <p>
+            Deblurring methods are often limited by the fixed global exposure time of the image capture process.
+            The post-processing algorithm either must deblur a longer exposure that contains relatively little noise
+            or denoise a short exposure that intentionally removes the opportunity for blur at the
+            cost of increased noise.
+          </p>
+          <p>
+            We present a novel approach of leveraging spatially varying pixel exposures for motion
+            deblurring using next-generation focal-plane sensor--processors along with an end-to-end
+            design of these exposures and a machine learning--based motion-deblurring framework.
+            We demonstrate in simulation and a physical prototype that learned spatially varying pixel exposures
+            (<b>L-SVPE</b>) can successfully deblur scenes while recovering high frequency detail.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Captured. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Captured</h2>
+          <p>
+            Captured results show how noisy and blurred global exposures such as Long and Short exposures can be.
+          </p>
+          <video id="captured" autoplay controls muted loop height="100%">
+            <source src="https://user-images.githubusercontent.com/21781041/163015297-acdd7154-e8a9-4a51-acc0-d88fdfc06c57.mov"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Captured. -->
+
+      <!-- Reconstructed. -->
+      <div class="column">
+        <h2 class="title is-3">Reconstructed</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              As a byproduct of our method, we can also solve the matting problem by ignoring
+              samples that fall outside of a bounding box during rendering.
+            </p>
+            <video id="recon" controls height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/matting.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Reconstructed. -->
+
+    <!-- Simulation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparisons</h2>
+        <div class="content has-text-justified">
+          <p>
+            We compare our method, L-SVPE, against other top performing baselines, including
+            those that use different interpolation methods.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+         <img src="static/images/grid_main.pdf">
+        </div>
+        <br/>
+      </div>
+    </div>
+    <!--/ Simulation. -->
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{nguyen2022learning,
+  author    = {Nguyen, Cindy M. and Martel, Julien N.P. and Wetzstein, Gordon},
+  title     = {Learning Spatially Varying Pixel Exposures},
+  journal   = {arxiv},
+  year      = {2022},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://www.computationalimaging.org/some.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/ccnguyen" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Page template from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
