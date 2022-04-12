@@ -33,14 +33,14 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Learning Spatially Varying Pixel Exposures</h1>
+          <h1 class="title is-1 publication-title">Learning Spatially Varying Pixel Exposures for Motion Deblurring</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://ccnguyen.github.io">Cindy M. Nguyen</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://twitter.com/jnpmartel">Julien N.P. Martel</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://stanford.edu/~gordonwz/">Gordon Wetzstein</a><sup>1</sup>,
+              <a href="https://stanford.edu/~gordonwz/">Gordon Wetzstein</a><sup>1</sup>
             </span>
           </div>
 
@@ -101,13 +101,41 @@
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="static/images/pipeline.png">
-      <h2 class="subtitle has-text-centered">
-        Illustration of our end-to-end pipeline, which includes a capture, interpolation, and reconstruction step.
-        The loss is backpropagated to the individual pixel exposures and weights of the decoding network.
-      </h2>
-    </div>
+    <div class="columns is-centered">
+
+        <!-- Captured. -->
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-3">Captured</h2>
+            <p>
+              Captured results show how noisy and blurred global exposures such as Long and Short exposures can be.
+            </p>
+            <video id="captured" autoplay controls muted loop height="100%">
+              <source src="https://user-images.githubusercontent.com/21781041/163015297-acdd7154-e8a9-4a51-acc0-d88fdfc06c57.mov"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <!--/ Captured. -->
+
+        <!-- Reconstructed. -->
+        <div class="column">
+          <h2 class="title is-3">Reconstructed</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <p>
+                When the captures are reconstructed, L-SVPE is able to recover high frequency detail while deblurring.
+              </p>
+              <video id="recon" controls height="100%">
+                <source src="https://user-images.githubusercontent.com/21781041/163015490-cfbe1dde-6d4f-4162-80bc-eba567a9e271.mov"
+                        type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Reconstructed. -->
   </div>
 </section>
 
@@ -146,42 +174,13 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Captured. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Captured</h2>
-          <p>
-            Captured results show how noisy and blurred global exposures such as Long and Short exposures can be.
-          </p>
-          <video id="captured" autoplay controls muted loop height="100%">
-            <source src="https://user-images.githubusercontent.com/21781041/163015297-acdd7154-e8a9-4a51-acc0-d88fdfc06c57.mov"
-                    type="video/mp4">
-          </video>
-        </div>
+    <div class="hero-body">
+        <img src="static/images/pipeline.png">
+        <h2 class="subtitle has-text-centered">
+          Illustration of our end-to-end pipeline, which includes a capture, interpolation, and reconstruction step.
+          The loss is backpropagated to the individual pixel exposures and weights of the decoding network.
+        </h2>
       </div>
-      <!--/ Captured. -->
-
-      <!-- Reconstructed. -->
-      <div class="column">
-        <h2 class="title is-3">Reconstructed</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              When the captures are reconstructed, L-SVPE is able to show the clearest detail.
-            </p>
-            <video id="recon" controls height="100%">
-              <source src="https://user-images.githubusercontent.com/21781041/163015490-cfbe1dde-6d4f-4162-80bc-eba567a9e271.mov"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Reconstructed. -->
 
     <!-- Simulation. -->
     <div class="columns is-centered">
@@ -227,17 +226,23 @@
       <a class="icon-link" href="https://github.com/ccnguyen" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            Page template from <a
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
-          </p>
-        </div>
+      <br>
+      <div class="content">
+        <p>
+          Page template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+        </p>
       </div>
     </div>
+<!--    <div class="columns is-centered">-->
+<!--      <div class="column is-8">-->
+<!--        <div class="content">-->
+<!--          <p>-->
+<!--            Page template from <a-->
+<!--              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </footer>
 
